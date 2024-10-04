@@ -27,7 +27,7 @@ export class EmployeeFormComponent {
   constructor(private employeeService:EmployeeService) {}
 
   addOrEditEmployee(employee:Employee) {
-    if (employee.id !== 0 || employee.id !== undefined) {
+    if (employee.id !== undefined && employee.id !== 0) {
       this.employeeService.updateEmployee(employee).subscribe({
         next:(data)=> {
           console.log("직원정보 수정 완료!");
