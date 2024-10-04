@@ -1,6 +1,6 @@
 {
     "/api":{
-        "target":"http://43.202.51.135:8443",
+        "target":"https://43.202.51.135:8443",
         "secure":false,
         "changeOrigin":true
     }
