@@ -2,5 +2,7 @@ export interface Employee {
     id:Number,
     name:string,
     email:string,
-    salary:Number
+    salary:Number,
+    seq:Number,
+    regdate:Date
 }

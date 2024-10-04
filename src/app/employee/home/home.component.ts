@@ -20,19 +20,24 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements AfterViewInit {
-  displayedColumns = ['id', 'name', 'email', 'salary', 'edit', 'delete'];
+  // displayedColumns = ['id', 'name', 'email', 'salary', 'edit', 'delete'];
+  displayedColumns = ['seq', 'name', 'email', 'salary', 'regdate', 'edit', 'delete'];
   dataSource = new MatTableDataSource<Employee>();
   constructor(private employeeService: EmployeeService) {}
 
   name:String='';
   email:String='';
   salary:any=undefined;
+  seq:any=undefined;
+  regdate:any=undefined;
 
   employee:Employee={
     id:0,
     name:'',
     email:'',
-    salary:this.salary
+    salary:this.salary,
+    seq:this.seq,
+    regdate:this.regdate
   }
 
   employees:Employee[]=[];
@@ -55,6 +60,7 @@ export class HomeComponent implements AfterViewInit {
     if (isConfirmed) {
       this.employeeService.deleteEmployee(id).subscribe((data)=> {
         this.employees = this.employees.filter(item=>item.id != id);
+        this.dataSource.data = this.employees;
       })
       window.location.reload();
     }

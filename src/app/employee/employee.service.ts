@@ -11,7 +11,9 @@ export class EmployeeService {
 
   constructor(private _httpClient:HttpClient) { }
 
+  //개발
   // baseUrl: String="/api/v1/employees";
+  //운영
   baseUrl: string = environment.apiUrl;
 
   fetchAllEmployees():Observable<Employee[]>{
